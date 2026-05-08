@@ -1,5 +1,5 @@
 # state-grid
-多点表国家电网用电信息青龙脚本，配合mqtt，在homeassistant中统计  
+多电表国家电网用电信息青龙脚本，配合mqtt，在homeassistant中统计  
 
 ----
 
