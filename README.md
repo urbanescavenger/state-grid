@@ -24,82 +24,203 @@ MQTT方法基于[x2rr/state-grid](https://github.com/x2rr/state-grid)
  export SGCC_MQTT_PASS="" #mqtt服务器密码
 ```
 ## homeassistant设置参考  
-订阅主题: nodejs/state-grid  
+configuration.yaml 文件添加mqtt传感器
+订阅主题: nodejs/state-grid/1111111111111、nodejs/state-grid/2222222222222  
+1111111111111、2222222222222自行替换为实际用电户号  
 configuration.yaml 文件添加mqtt传感器
 ```
 mqtt:
   sensor:
     - name: "电费余额"
       icon: 'mdi:lightning-bolt'
-      unique_id: 'yong_dian_xin_xi'
-      state_topic: "nodejs/state-grid"
+      unique_id: 'yong_dian_xin_xi_1111111111111'
+      state_topic: "nodejs/state-grid/1111111111111"
       value_template: "{{ value_json.sumMoney }}"
       unit_of_measurement: '元'
-      json_attributes_topic: "nodejs/state-grid"
+      json_attributes_topic: "nodejs/state-grid/1111111111111"
       json_attributes_template: "{{ value_json | tojson }}"
+      device:
+        identifiers: ["mqtt1111111111111"]
+        name: "用电信息-1111111111111"
     - name: 'Electricity Usage Day 1'
-      state_topic: 'nodejs/state-grid'
+      state_topic: 'nodejs/state-grid/1111111111111'
       value_template: '{{ value_json.dayList[0].dayElePq }}'
-      unique_id: "electricity_usage_day1"
+      unique_id: "electricity_usage_day1_1111111111111"
       device_class: "energy"
       unit_of_measurement: "度"
       icon: "mdi:chart-bell-curve"
-      json_attributes_topic: "nodejs/state-grid"
+      json_attributes_topic: "nodejs/state-grid/1111111111111"
       json_attributes_template: "{{ value_json.dayList[0] | tojson }}"
+      device:
+        identifiers: ["mqtt1111111111111"]
+        name: "用电信息-1111111111111"
     - name: 'Electricity Usage Day 2'
-      state_topic: 'nodejs/state-grid'
+      state_topic: 'nodejs/state-grid/1111111111111'
       value_template: '{{ value_json.dayList[1].dayElePq }}'
-      unique_id: "electricity_usage_day2"
+      unique_id: "electricity_usage_day2_1111111111111"
       device_class: "energy"
       unit_of_measurement: "度"
       icon: "mdi:chart-bell-curve"
-      json_attributes_topic: "nodejs/state-grid"
+      json_attributes_topic: "nodejs/state-grid/1111111111111"
       json_attributes_template: "{{ value_json.dayList[1] | tojson }}"
+      device:
+        identifiers: ["mqtt1111111111111"]
+        name: "用电信息-1111111111111"
     - name: 'Electricity Usage Day 3'
-      state_topic: 'nodejs/state-grid'
+      state_topic: 'nodejs/state-grid/1111111111111'
       value_template: '{{ value_json.dayList[2].dayElePq }}'
-      unique_id: "electricity_usage_day3"
+      unique_id: "electricity_usage_day3_1111111111111"
       device_class: "energy"
       unit_of_measurement: "度"
       icon: "mdi:chart-bell-curve"
-      json_attributes_topic: "nodejs/state-grid"
+      json_attributes_topic: "nodejs/state-grid/1111111111111"
       json_attributes_template: "{{ value_json.dayList[2] | tojson }}"
+      device:
+        identifiers: ["mqtt1111111111111"]
+        name: "用电信息-1111111111111"
     - name: 'Electricity Usage Day 4'
-      state_topic: 'nodejs/state-grid'
+      state_topic: 'nodejs/state-grid/1111111111111'
       value_template: '{{ value_json.dayList[3].dayElePq }}'
-      unique_id: "electricity_usage_day4"
+      unique_id: "electricity_usage_day4_1111111111111"
       device_class: "energy"
       unit_of_measurement: "度"
       icon: "mdi:chart-bell-curve"
-      json_attributes_topic: "nodejs/state-grid"
+      json_attributes_topic: "nodejs/state-grid/1111111111111"
       json_attributes_template: "{{ value_json.dayList[3] | tojson }}"
+      device:
+        identifiers: ["mqtt1111111111111"]
+        name: "用电信息-1111111111111"
     - name: 'Electricity Usage Day 5'
-      state_topic: 'nodejs/state-grid'
+      state_topic: 'nodejs/state-grid/1111111111111'
       value_template: '{{ value_json.dayList[4].dayElePq }}'
-      unique_id: "electricity_usage_day5"
+      unique_id: "electricity_usage_day5_1111111111111"
       device_class: "energy"
       unit_of_measurement: "度"
       icon: "mdi:chart-bell-curve"
-      json_attributes_topic: "nodejs/state-grid"
+      json_attributes_topic: "nodejs/state-grid/1111111111111"
       json_attributes_template: "{{ value_json.dayList[4] | tojson }}"
+      device:
+        identifiers: ["mqtt1111111111111"]
+        name: "用电信息-1111111111111"
     - name: 'Electricity Usage Day 6'
-      state_topic: 'nodejs/state-grid'
+      state_topic: 'nodejs/state-grid/1111111111111'
       value_template: '{{ value_json.dayList[5].dayElePq }}'
-      unique_id: "electricity_usage_day6"
+      unique_id: "electricity_usage_day6_1111111111111"
       device_class: "energy"
       unit_of_measurement: "度"
       icon: "mdi:chart-bell-curve"
-      json_attributes_topic: "nodejs/state-grid"
+      json_attributes_topic: "nodejs/state-grid/1111111111111"
       json_attributes_template: "{{ value_json.dayList[5] | tojson }}"
+      device:
+        identifiers: ["mqtt1111111111111"]
+        name: "用电信息-1111111111111"
     - name: 'Electricity Usage Day 7'
-      state_topic: 'nodejs/state-grid'
+      state_topic: 'nodejs/state-grid/1111111111111'
       value_template: '{{ value_json.dayList[6].dayElePq }}'
-      unique_id: "electricity_usage_day7"
+      unique_id: "electricity_usage_day7_1111111111111"
       device_class: "energy"
       unit_of_measurement: "度"
       icon: "mdi:chart-bell-curve"
-      json_attributes_topic: "nodejs/state-grid"
+      json_attributes_topic: "nodejs/state-grid/1111111111111"
       json_attributes_template: "{{ value_json.dayList[6] | tojson }}"
+      device:
+        identifiers: ["mqtt1111111111111"]
+        name: "用电信息-1111111111111"
+    - name: "电费余额"
+      icon: 'mdi:lightning-bolt'
+      unique_id: 'yong_dian_xin_xi_2222222222222'
+      state_topic: "nodejs/state-grid/2222222222222"
+      value_template: "{{ value_json.sumMoney }}"
+      unit_of_measurement: '元'
+      json_attributes_topic: "nodejs/state-grid/2222222222222"
+      json_attributes_template: "{{ value_json | tojson }}"
+      device:
+        identifiers: ["mqtt2222222222222"]
+        name: "用电信息-2222222222222"
+    - name: 'Electricity Usage Day 1'
+      state_topic: 'nodejs/state-grid/2222222222222'
+      value_template: '{{ value_json.dayList[0].dayElePq }}'
+      unique_id: "electricity_usage_day1_2222222222222"
+      device_class: "energy"
+      unit_of_measurement: "度"
+      icon: "mdi:chart-bell-curve"
+      json_attributes_topic: "nodejs/state-grid/2222222222222"
+      json_attributes_template: "{{ value_json.dayList[0] | tojson }}"
+      device:
+        identifiers: ["mqtt2222222222222"]
+        name: "用电信息-2222222222222"
+    - name: 'Electricity Usage Day 2'
+      state_topic: 'nodejs/state-grid/2222222222222'
+      value_template: '{{ value_json.dayList[1].dayElePq }}'
+      unique_id: "electricity_usage_day2_2222222222222"
+      device_class: "energy"
+      unit_of_measurement: "度"
+      icon: "mdi:chart-bell-curve"
+      json_attributes_topic: "nodejs/state-grid/2222222222222"
+      json_attributes_template: "{{ value_json.dayList[1] | tojson }}"
+      device:
+        identifiers: ["mqtt2222222222222"]
+        name: "用电信息-2222222222222"
+    - name: 'Electricity Usage Day 3'
+      state_topic: 'nodejs/state-grid/2222222222222'
+      value_template: '{{ value_json.dayList[2].dayElePq }}'
+      unique_id: "electricity_usage_day3_2222222222222"
+      device_class: "energy"
+      unit_of_measurement: "度"
+      icon: "mdi:chart-bell-curve"
+      json_attributes_topic: "nodejs/state-grid/2222222222222"
+      json_attributes_template: "{{ value_json.dayList[2] | tojson }}"
+      device:
+        identifiers: ["mqtt2222222222222"]
+        name: "用电信息-2222222222222"
+    - name: 'Electricity Usage Day 4'
+      state_topic: 'nodejs/state-grid/2222222222222'
+      value_template: '{{ value_json.dayList[3].dayElePq }}'
+      unique_id: "electricity_usage_day4_2222222222222"
+      device_class: "energy"
+      unit_of_measurement: "度"
+      icon: "mdi:chart-bell-curve"
+      json_attributes_topic: "nodejs/state-grid/2222222222222"
+      json_attributes_template: "{{ value_json.dayList[3] | tojson }}"
+      device:
+        identifiers: ["mqtt2222222222222"]
+        name: "用电信息-2222222222222"
+    - name: 'Electricity Usage Day 5'
+      state_topic: 'nodejs/state-grid/2222222222222'
+      value_template: '{{ value_json.dayList[4].dayElePq }}'
+      unique_id: "electricity_usage_day5_2222222222222"
+      device_class: "energy"
+      unit_of_measurement: "度"
+      icon: "mdi:chart-bell-curve"
+      json_attributes_topic: "nodejs/state-grid/2222222222222"
+      json_attributes_template: "{{ value_json.dayList[4] | tojson }}"
+      device:
+        identifiers: ["mqtt2222222222222"]
+        name: "用电信息-2222222222222"
+    - name: 'Electricity Usage Day 6'
+      state_topic: 'nodejs/state-grid/2222222222222'
+      value_template: '{{ value_json.dayList[5].dayElePq }}'
+      unique_id: "electricity_usage_day6_2222222222222"
+      device_class: "energy"
+      unit_of_measurement: "度"
+      icon: "mdi:chart-bell-curve"
+      json_attributes_topic: "nodejs/state-grid/2222222222222"
+      json_attributes_template: "{{ value_json.dayList[5] | tojson }}"
+      device:
+        identifiers: ["mqtt2222222222222"]
+        name: "用电信息-2222222222222"
+    - name: 'Electricity Usage Day 7'
+      state_topic: 'nodejs/state-grid/2222222222222'
+      value_template: '{{ value_json.dayList[6].dayElePq }}'
+      unique_id: "electricity_usage_day7_2222222222222"
+      device_class: "energy"
+      unit_of_measurement: "度"
+      icon: "mdi:chart-bell-curve"
+      json_attributes_topic: "nodejs/state-grid/2222222222222"
+      json_attributes_template: "{{ value_json.dayList[6] | tojson }}"
+      device:
+        identifiers: ["mqtt2222222222222"]
+        name: "用电信息-2222222222222"
   ```
 ## homeassistant卡片参考  
 用电概况统计
@@ -110,35 +231,34 @@ cards:
     columns: 2
     cards:
       - type: entity
-        entity: sensor.dian_fei_yu_e
+        entity: sensor.yong_dian_xin_xi_1111111111111_dian_fei_yu_e
         name: 电费余额
         attribute: sumMoney
         unit: 元
         icon: mdi:currency-usd
       - type: entity
-        entity: sensor.electricity_usage_day_1
+        entity: sensor.yong_dian_xin_xi_1111111111111_electricity_usage_day_1
         name: 昨日用电
         icon: mdi:lightning-bolt
       - type: entity
-        entity: sensor.dian_fei_yu_e
+        entity: sensor.yong_dian_xin_xi_1111111111111_dian_fei_yu_e
         name: 年度总电费
         attribute: totalEleCost
         unit: 元
         icon: mdi:currency-usd
       - type: entity
-        entity: sensor.dian_fei_yu_e
+        entity: sensor.yong_dian_xin_xi_1111111111111_dian_fei_yu_e
         name: 年度总电量
-        attribute: totalEleNum
         unit: 度
         icon: mdi:lightning-bolt
     square: false
   - type: entity
-    entity: sensor.electricity_usage_day_1
+    entity: sensor.yong_dian_xin_xi_1111111111111_electricity_usage_day_1
     name: 昨日日期
     attribute: day
     icon: mdi:calendar-today
   - type: entity
-    entity: sensor.dian_fei_yu_e
+    entity: sensor.yong_dian_xin_xi_1111111111111_dian_fei_yu_e
     name: 更新日期
     attribute: amtTime
     icon: mdi:clock-time-three
@@ -150,7 +270,7 @@ title: 用电统计
 type: custom:flex-table-card
 title: 过去7天用电情况
 entities:
-  include: sensor.electricity_usage_day*
+  include: sensor.yong_dian_xin_xi_1111111111111_electricity_usage_day*
 columns:
   - name: 日期
     data: day
@@ -175,7 +295,7 @@ header:
   show_states: true
   colorize_states: true
 series:
-  - entity: sensor.dian_fei_yu_e
+  - entity: sensor.yong_dian_xin_xi_1111111111111_dian_fei_yu_e
     name: 用电量
     unit: 度
     type: column
@@ -198,7 +318,7 @@ header:
   show_states: true
   colorize_states: true
 series:
-  - entity: sensor.dian_fei_yu_e
+  - entity: sensor.yong_dian_xin_xi_1111111111111_dian_fei_yu_e
     name: 用电量
     unit: 度
     type: column
