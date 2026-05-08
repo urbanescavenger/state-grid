@@ -17,8 +17,8 @@ MQTT方法基于[x2rr/state-grid](https://github.com/x2rr/state-grid)
 ```
 
  export SGCC_USERNAME="" #网上国网账号
- export SGCC_MQTT_HOST="" #网上国网密码
- export WSGW_mqtt_host="" #mqtt服务器地址 192.168.1.7
+ export SGCC_PASSWORD="" #网上国网密码
+ export SGCC_MQTT_HOST="" #mqtt服务器地址 192.168.1.7
  export SGCC_MQTT_PORT="" #mqtt服务器端口 1883
  export SGCC_MQTT_USER="" #mqtt服务器用户名
  export SGCC_MQTT_PASS="" #mqtt服务器密码
