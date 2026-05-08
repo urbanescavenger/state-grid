@@ -1,10 +1,11 @@
 # state-grid
-单电表版国家电网用电信息青龙脚本，配合mqtt，在homeassistant中统计  
+多点表国家电网用电信息青龙脚本，配合mqtt，在homeassistant中统计  
 
 ----
 
-新增多电表版，详情请点击👉[查看详情](./README-multiple.md)
 
+国网查询基于[Yuheng0101大佬](https://github.com/Yuheng0101)的[国网查询任务](https://github.com/Yuheng0101/X/tree/main/Tasks/95598)，
+MQTT方法基于[x2rr/state-grid](https://github.com/x2rr/state-grid)
 ----
 
 <img width="1057" alt="image" src="https://github.com/user-attachments/assets/b8e3986a-718f-4adb-ab2c-e199c7e6f114" />
@@ -14,13 +15,13 @@
 ### 青龙环境变量设置  
 
 ```
- export WSGW_USERNAME="" #网上国网账号
- export WSGW_PASSWORD="" #网上国网密码
- export WSGW_RECENT_ELC_FEE="true" #是否获取最近电费
+
+ export SGCC_USERNAME="" #网上国网账号
+ export SGCC_MQTT_HOST="" #网上国网密码
  export WSGW_mqtt_host="" #mqtt服务器地址 192.168.1.7
- export WSGW_mqtt_port="" #mqtt服务器端口 1883
- export WSGW_mqtt_username="" #mqtt服务器用户名
- export WSGW_mqtt_password="" #mqtt服务器密码
+ export SGCC_MQTT_PORT="" #mqtt服务器端口 1883
+ export SGCC_MQTT_USER="" #mqtt服务器用户名
+ export SGCC_MQTT_PASS="" #mqtt服务器密码
 ```
 ## homeassistant设置参考  
 订阅主题: nodejs/state-grid  
