@@ -1,5 +1,6 @@
 # state-grid
 多电表国家电网用电信息青龙脚本，配合mqtt，在homeassistant中统计  
+notify模块删了，需要提醒的可以自行添加
 
 ----
 
