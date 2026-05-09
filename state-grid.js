@@ -291,14 +291,13 @@ async function refreshToken(username, password) {
 // ========== 统一请求入口 ==========
 
 const sgccRequest = async (config, retryCount = 0, username = null, password = null) => {
-  console.log(`📡 请求: ${config.url}${retryCount > 0 ? ` (重试${retryCount})` : ''}`);
+  log.debug(`请求: ${config.url}${retryCount > 0 ? ` (重试${retryCount})` : ''}`);
 
   // 1. 加密请求参数
   const encrypted = await encryptRequest(config);
 
   // 2. 发送到国网 - 使用加密返回的完整headers
-  console.log('  → 发送国网...');
-  console.log('  → URL:', encrypted.url);
+  log.debug('发送国网: ' + encrypted.url);
 
   const sgccResponse = await fetchRequest(encrypted.url, {
     method: encrypted.method || 'post',
@@ -307,7 +306,7 @@ const sgccRequest = async (config, retryCount = 0, username = null, password = n
     timeout: 30
   });
 
-  console.log('  → 国网响应:', sgccResponse.body.slice(0, 200));
+  log.data('国网响应: ' + sgccResponse.body.slice(0, 100));
 
   // 3. 检查HTTP错误
   if (!sgccResponse.ok) {
@@ -561,11 +560,11 @@ async function getDailyUsage(consNoReal, consNoEnc, proCode, orgNo, consType, to
   const year = new Date().getFullYear();
 
   const formatDate = (d) => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-  // endTime = 昨天, startTime = 6天前 (对应95598.js Se函数: Se(1)和Se(6))
+  // endTime = 昨天, startTime = 10天前
   const endTime = new Date();
-  endTime.setDate(endTime.getDate() - 1);  // 昨天 (Se(1))
+  endTime.setDate(endTime.getDate() - 1);  // 昨天
   const startTime = new Date();
-  startTime.setDate(startTime.getDate() - 6);  // 6天前 (Se(6))
+  startTime.setDate(startTime.getDate() - 10);  // 10天前
 
   // 用电量查询consNo用真实户号 (对应95598.js $n函数)
   const requestData = {
@@ -762,14 +761,9 @@ async function main() {
       });
     }
 
-    // 输出完整JSON
-    console.log('\n\n');
-    console.log('╔' + '═'.repeat(50) + '╗');
-    console.log('║' + ' '.repeat(15) + '完整JSON查询结果' + ' '.repeat(15) + '║');
-    console.log('╚' + '═'.repeat(50) + '╝');
-    console.log('\n');
-    console.log(JSON.stringify(results, null, 2));
-    console.log('\n✅ 查询完成!');
+    // 输出完整JSON (仅调试模式)
+    log.data('查询结果: ' + JSON.stringify(results, null, 2));
+    log.ok('查询完成!');
 
     // 发送MQTT消息
     if (process.env.SGCC_MQTT_HOST) {
